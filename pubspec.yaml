@@ -29,6 +29,7 @@ dependencies:
   flutter_villains: "^1.2.1"
   image_picker: ^0.6.0+13
   flutter_markdown: ^0.2.0
+  dio: ^2.1.11
 dev_dependencies:
   flutter_test:
     sdk: flutter
