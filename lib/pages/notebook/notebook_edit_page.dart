@@ -11,6 +11,25 @@ class _NotebookEditPageState extends State<NotebookEditPage> {
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String _value;
 
+// 返回提示对话框
+  Future<bool> _dialogExitApp(BuildContext context) {
+    return showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        content: Text('是否退出'),
+        actions: <Widget>[
+          FlatButton(onPressed: () => Navigator.of(context).pop(false), child: Text('取消'),),
+          FlatButton(
+            onPressed: () {
+              Navigator.of(context).pop(true);
+            },
+            child: Text('确定'),
+          )
+        ],
+      )
+    );
+  }
+
   void _formSubmitted() {
     var _form = _formKey.currentState;
     if(_form.validate()) {
@@ -25,8 +44,18 @@ class _NotebookEditPageState extends State<NotebookEditPage> {
       appBar: AppBar(
         title: Text('写日记'),
       ),
-      body: Container(
-        padding: EdgeInsets.all(12.0),
+      body: WillPopScope( // 返回功能
+        onWillPop: () {
+          return _dialogExitApp(context);
+        },
+        child: _notebookContainer(),
+      )
+    );
+  }
+
+  Widget _notebookContainer() {
+    return Container(
+      padding: EdgeInsets.all(12.0),
         child: Form(
           key: _formKey,
           child: Column(
@@ -62,8 +91,7 @@ class _NotebookEditPageState extends State<NotebookEditPage> {
               )
             ],
           ),
-        ),
-      ),
+        )
     );
   }
 }

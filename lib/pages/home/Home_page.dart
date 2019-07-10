@@ -8,6 +8,23 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  final ScrollController _scrollController = ScrollController();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    // 监听
+    _scrollController.addListener(() {
+
+    });
+    super.initState();
+  }
+
+  _getListCount() {
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
