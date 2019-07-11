@@ -28,11 +28,11 @@ class MyApp extends StatelessWidget {
         title: 'notebook',
         routes: {
           /// 在这里做登录路由跳转
-          // WelcomePage.sName: (context) {
-          //   return new NotebookLocalization(
-          //     child: NavgiatorUtils.pageContainer(new WelcomePage()),
-          //   );
-          // },
+          WelcomePage.sName: (context) {
+            return new NotebookLocalization(
+              child: NavgiatorUtils.pageContainer(new WelcomePage()),
+            );
+          },
           IndexPage.sIndex: (context) {
             return new NotebookLocalization(
               child: NavgiatorUtils.pageContainer(new IndexPage()),
