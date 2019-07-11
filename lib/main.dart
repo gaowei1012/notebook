@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
     return StoreProvider(
       store: store,
       child: MaterialApp(
-        theme: ThemeData.light(),
+        theme: store.state.themeData,
         title: 'notebook',
         home: IndexPage(),
       ),
