@@ -7,6 +7,7 @@ import './page/about_page.dart';
 import '../login/login_page.dart';
 import './page/feed_back_page.dart';
 import './page/me_page.dart';
+import './page/tabbar_page.dart';
 
 class SettingPage extends StatefulWidget {
   @override
@@ -60,6 +61,7 @@ class _SettingPageState extends State<SettingPage> {
           _feedback(context),
           _about(context),
           _exitLogin(context),
+          _topBar()
         ],
       ),
     );
@@ -193,6 +195,24 @@ class _SettingPageState extends State<SettingPage> {
         trailing: Icon(Icons.arrow_right),
         // onTap: onTapOpenAlert()
         // onLongPress: onTapOpenAlert(),
+      ),
+    );
+  }
+
+  Widget _topBar() {
+    return Container(
+      decoration: BoxDecoration(
+        color: CupertinoColors.white,
+        border: Border(bottom: BorderSide(width: 1, color: Colors.black12))
+      ),
+      child: ListTile(
+        leading: Icon(Icons.games),
+        title: Text('顶部导航'),
+        trailing: Icon(Icons.arrow_right),
+        onTap: () {
+          /// 跳转到topbarpage页面
+          Navigator.of(context).push(MaterialPageRoute(builder: (context) => TopBarPage()));
+        },
       ),
     );
   }

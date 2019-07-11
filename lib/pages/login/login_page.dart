@@ -6,6 +6,9 @@ import './register_page.dart';
 import './forget_pasd_page.dart';
 
 class LoginPage extends StatefulWidget {
+
+  static final String sLogin = 'login';
+
   @override
   _LoginPageState createState() => _LoginPageState();
 }
