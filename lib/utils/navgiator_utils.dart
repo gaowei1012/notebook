@@ -16,6 +16,10 @@ class NavgiatorUtils {
     Navigator.pushReplacementNamed(context, IndexPage.sIndex);
   }
 
+  // static getHome(BuildContext context) {
+  //   Navigator.pushAndRemoveUntil(context, IndexPage.sIndex, (route) => route == null);
+  // }
+
   /// 登录页
   static getLogin(BuildContext context) {
     Navigator.pushReplacementNamed(context, LoginPage.sLogin);

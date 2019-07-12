@@ -28,17 +28,18 @@ class MyApp extends StatelessWidget {
         title: 'notebook',
         routes: {
           /// 在这里做登录路由跳转
-          WelcomePage.sName: (context) {
-            return new NotebookLocalization(
-              child: NavgiatorUtils.pageContainer(new WelcomePage()),
-            );
+          WelcomePage.sName: (context) {// ==> '/'
+            return new WelcomePage();
+            // return new NotebookLocalization(
+            //   child: NavgiatorUtils.pageContainer(new WelcomePage()),
+            // );
           },
-          IndexPage.sIndex: (context) {
+          IndexPage.sIndex: (context) {// ==> 'index'
             return new NotebookLocalization(
               child: NavgiatorUtils.pageContainer(new IndexPage()),
             );
           },
-          LoginPage.sLogin: (context) {
+          LoginPage.sLogin: (context) {// ==> 'login'
             return new NotebookLocalization(
               child: NavgiatorUtils.pageContainer(new LoginPage()),
             );
