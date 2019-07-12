@@ -121,7 +121,7 @@ class _SettingPageState extends State<SettingPage> {
           _feedback(context),
           _about(context),
           _exitLogin(context),
-          _topBar()
+          ///_topBar()
         ],
       ),
     );
@@ -135,9 +135,13 @@ class _SettingPageState extends State<SettingPage> {
       padding: EdgeInsets.all(0),
       color: CupertinoColors.inactiveGray,
       child: Container(
-        child: Image.network(
-          'https://gaomingwei.xyz/wp-content/uploads/2019/04/2.jpg',
-          fit: BoxFit.cover,  
+        // child: Image.network(
+        //   'https://gaomingwei.xyz/wp-content/uploads/2019/04/2.jpg',
+        //   fit: BoxFit.cover,  
+        // ),
+        child: new Image(
+          image: new AssetImage("static/images/avatar.jpg"),
+          fit: BoxFit.cover,
         ),
       ),
     );

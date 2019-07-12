@@ -99,4 +99,5 @@ flutter:
     - static/images/default_img.png
     - static/images/logo.png
     - static/images/welcome.png
+    - static/images/avatar.jpg
 
