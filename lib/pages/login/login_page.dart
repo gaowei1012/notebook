@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:notebook/pages/login/forget_pasd_page.dart';
 import 'package:notebook/pages/login/register_page.dart';
-import 'package:notebook/pages/home/Home_page.dart';
+import 'package:notebook/pages/index_page.dart';
 
 class LoginPage extends StatefulWidget {
   static final String sLogin = 'login';
@@ -14,9 +14,10 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-
-  RegExp expUserName = new RegExp(r'^([\u4e00-\u9fa5]{2,4})|([A-Za-z0-9_]{4,16})|([a-zA-Z0-9_\u4e00-\u9fa5]{3,16})$;');
-  RegExp expPassword = new RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,10}');
+  RegExp expUserName = new RegExp(
+      r'^([\u4e00-\u9fa5]{2,4})|([A-Za-z0-9_]{4,16})|([a-zA-Z0-9_\u4e00-\u9fa5]{3,16})$;');
+  RegExp expPassword = new RegExp(
+      r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,10}');
 
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String username = '执念';
@@ -70,8 +71,12 @@ class _LoginPageState extends State<LoginPage> {
 
       if (_name == username && _password == password) {
         // 登录成功，跳转到home页面
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => HomePage()));
+        // Navigator.of(context)
+        //     .push(MaterialPageRoute(builder: (context) => HomePage()));
+        Navigator.pushAndRemoveUntil(
+            context,
+            new MaterialPageRoute(builder: (context) => new IndexPage()),
+            (route) => route == null);
         print('---登录成功---');
       } else {
         print('登录失败');
@@ -101,7 +106,7 @@ class _LoginPageState extends State<LoginPage> {
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
                         labelText: '用户名',
-                        hintText: '请输入用户名',
+                        hintText: '请输入用户名: [执念]',
                         //icon: Icon(CupertinoIcons.person)
                       ),
                       onSaved: (val) {
@@ -115,12 +120,13 @@ class _LoginPageState extends State<LoginPage> {
                         } else {
                           return '用户名必须是字母或数字，不能以下划线开头或结尾';
                         }
+
                         ///return v.trim().length > 0 ? null : '用户名不存在';
                       }),
                   TextFormField(
                     decoration: InputDecoration(
                       labelText: '密码',
-                      hintText: '请输入密码',
+                      hintText: '请输入密码: [*Gao129231wei*]',
                       //icon: Icon(CupertinoIcons.padlock),
                     ),
                     obscureText: true,

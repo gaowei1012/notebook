@@ -31,8 +31,13 @@ class _ForgetPasdPageState extends State<ForgetPasdPage> {
               CupertinoDialogAction(
                 child: new Text('确定'),
                 onPressed: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => LoginPage()));
+                  // Navigator.of(context).push(
+                  //     MaterialPageRoute(builder: (context) => LoginPage()));
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      new MaterialPageRoute(
+                          builder: (context) => new LoginPage()),
+                      (route) => route == null);
                 },
               )
             ],
