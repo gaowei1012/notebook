@@ -48,6 +48,11 @@ class HttpManager {
   getAuthorization() async {
     return _tokenInterceptors.getAuthorization();
   }
+
+  /// 清除登录信息
+  clearAuthorization() async {
+    return true;
+  }
 }
 
 final HttpManager httpManager = new HttpManager();
