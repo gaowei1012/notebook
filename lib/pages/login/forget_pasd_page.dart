@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:notebook/pages/login/login_page.dart';
+
 class ForgetPasdPage extends StatefulWidget {
   @override
   _ForgetPasdPageState createState() => _ForgetPasdPageState();
@@ -26,14 +28,17 @@ class _ForgetPasdPageState extends State<ForgetPasdPage> {
     if(_form.validate()) {
       _form.save();
 
-      if (_password != _nextPassword) {
-        AlertDialog(
-          title: Text('两次输入的密码不一致'),
-        );
-      }
-      print(_name);
-      print(_password);
-      print(_nextPassword);
+      // if (_password != _nextPassword) {
+      //   AlertDialog(
+      //     title: Text('两次输入的密码不一致'),
+      //   );
+      // }
+      // print(_name);
+      // print(_password);
+      // print(_nextPassword);
+
+      Navigator.of(context).push(MaterialPageRoute(builder: (context) => LoginPage()));
+
     }
   }
 
