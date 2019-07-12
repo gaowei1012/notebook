@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:notebook/pages/login/login_page.dart';
@@ -13,6 +14,26 @@ class _RegisterPageState extends State<RegisterPage> {
   String _name;
   String _password;
   String _nextPassword;
+
+  void showDialogTip() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return new CupertinoAlertDialog(
+          title: new Text('提示'),
+          content: new Text('注册成功~~'),
+          actions: <Widget>[
+            CupertinoDialogAction(
+              child: new Text('确定'),
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => LoginPage()));
+              },
+            ),
+          ],
+        );
+      }
+    );
+  }
 
   void _formSubmitted() {
     var _form = _formKey.currentState;
@@ -36,8 +57,8 @@ class _RegisterPageState extends State<RegisterPage> {
       // print(_name);
       // print(_password);
       // print(_nextPassword);
-
-      Navigator.of(context).push(MaterialPageRoute(builder: (context) => LoginPage()));
+      showDialogTip();
+      //Navigator.of(context).push(MaterialPageRoute(builder: (context) => LoginPage()));
 
     }
   }

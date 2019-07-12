@@ -74,6 +74,39 @@ class _SettingPageState extends State<SettingPage> {
     );
   }
 
+  // 退出功能
+  void onExit() {
+    // 提示用户是否退出
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return new CupertinoAlertDialog(
+          title: new Text('是否退出'),
+          content: new Column(
+            children: <Widget>[
+              new Text('确认是否退出？')
+            ],
+          ),
+          actions: <Widget>[
+            CupertinoDialogAction(
+              child: new Text('取消'),
+              onPressed: () {
+                Navigator.of(context).pop(context);
+              },
+            ),
+            CupertinoDialogAction(
+              child: new Text('确定'),
+              onPressed: () {
+                /// 退出
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => LoginPage()));
+              },
+            )
+          ],
+        );
+      }
+    );
+  } 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -197,10 +230,11 @@ class _SettingPageState extends State<SettingPage> {
         leading: Icon(Icons.exit_to_app),
         title: Text('退出登录'),
         trailing: Icon(Icons.arrow_right),
-        onTap: () {
-          Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => LoginPage()));
-        },
+        onTap: onExit,
+        //() {
+        //  Navigator.of(context)
+        //    .push(MaterialPageRoute(builder: (context) => LoginPage()));
+        //},
       ),
     );
   }

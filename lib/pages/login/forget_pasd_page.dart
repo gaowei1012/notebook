@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:notebook/pages/login/login_page.dart';
@@ -13,6 +14,26 @@ class _ForgetPasdPageState extends State<ForgetPasdPage> {
   String _name;
   String _password;
   String _nextPassword;
+
+  void showDailogTip() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return new CupertinoAlertDialog(
+          title: new Text('提示'),
+          content: new Text('密码修改成功'),
+          actions: <Widget>[
+            CupertinoDialogAction(
+              child: new Text('确定'),
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => LoginPage()));
+              },
+            )
+          ],  
+        );
+      }      
+    );
+  }  
 
   void _formSubmitted() {
     var _form = _formKey.currentState;
@@ -36,8 +57,8 @@ class _ForgetPasdPageState extends State<ForgetPasdPage> {
       // print(_name);
       // print(_password);
       // print(_nextPassword);
-
-      Navigator.of(context).push(MaterialPageRoute(builder: (context) => LoginPage()));
+      showDailogTip();
+      //Navigator.of(context).push(MaterialPageRoute(builder: (context) => LoginPage()));
 
     }
   }
