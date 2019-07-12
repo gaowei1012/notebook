@@ -8,7 +8,7 @@ import './privacy/privacy_page.dart';
 import './setting/setting_page.dart';
 
 class IndexPage extends StatefulWidget {
-  static final String sIndex = '/';
+  static final String sIndex = '/index';
   @override
   _IndexPageState createState() => _IndexPageState();
 }
