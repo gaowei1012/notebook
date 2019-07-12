@@ -16,35 +16,62 @@ class SettingPage extends StatefulWidget {
 
 class _SettingPageState extends State<SettingPage> {
 
-// 弹出选择框
-  onTapOpenAlert() {
-    showDialog<Null>(
+// 弹出主题选择框
+  void showDailogTip() {
+    showDialog(
       context: context,
-      barrierDismissible: false,
       builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('主题更换'),
-          content: SingleChildScrollView(
-            child: ListBody(
-              children: <Widget>[
-                Text('data1'),
-                Text('data1')
-              ],
-            ),
+        return new CupertinoAlertDialog(
+          title: new Text('更换主题😻'),
+          content: Column(
+            children: <Widget>[
+              SizedBox(height: 10,),
+              Align(child: Column(
+                children: <Widget>[
+                  // new Text('主题色1'),
+                  // new Text('主题色2'),
+                  // new Text('主题色3'),
+                  new Container(
+                    padding: EdgeInsets.all(10),
+                    child: new Card(
+                      child: new Text('主题色1'),
+                    ),
+                  ),
+                  new Container(
+                    padding: EdgeInsets.all(10),
+                    child: new Card(
+                      child: new Text('主题色2'),
+                    ),
+                  ),
+                  new Container(
+                    padding: EdgeInsets.all(10),
+                    child: new Card(
+                      child: new Text('主题色3'),
+                    ),
+                  )
+                ],
+              ),alignment: Alignment.center,)
+            ],
           ),
           actions: <Widget>[
-            FlatButton(
-              child: Text('确定'),
+            CupertinoDialogAction(
+              child: new Text('取消'),
               onPressed: () {
-                Navigator.of(context).pop();
+                Navigator.of(context).pop(context);
+                print('取消');
+              },
+            ),
+            CupertinoDialogAction(
+              child: new Text('确定'),
+              onPressed: () {
+                Navigator.of(context).pop(context);
+                print('确实');
               },
             )
           ],
         );
       }
-    ).then((val) {
-      print(val);
-    });
+    );
   }
 
   @override
@@ -193,8 +220,7 @@ class _SettingPageState extends State<SettingPage> {
         leading: Icon(Icons.school),
         title: Text('更换主题色'),
         trailing: Icon(Icons.arrow_right),
-        // onTap: onTapOpenAlert()
-        // onLongPress: onTapOpenAlert(),
+        onTap: showDailogTip,
       ),
     );
   }
