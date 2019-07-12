@@ -14,9 +14,13 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+
+  RegExp expUserName = new RegExp(r'^([\u4e00-\u9fa5]{2,4})|([A-Za-z0-9_]{4,16})|([a-zA-Z0-9_\u4e00-\u9fa5]{3,16})$;');
+  RegExp expPassword = new RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,10}');
+
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  String username = 'admin';
-  String password = 'admin123';
+  String username = '执念';
+  String password = '*Gao129231wei*';
   String _name;
   String _password;
 
@@ -104,7 +108,14 @@ class _LoginPageState extends State<LoginPage> {
                         _name = val;
                       },
                       validator: (v) {
-                        return v.trim().length > 0 ? null : '用户名不存在';
+                        /// 用户名必须是字母、数字，不能以下划线开头或结尾
+                        if (expUserName.hasMatch(v.trim())) {
+                          // 匹配成功
+                          return null;
+                        } else {
+                          return '用户名必须是字母或数字，不能以下划线开头或结尾';
+                        }
+                        ///return v.trim().length > 0 ? null : '用户名不存在';
                       }),
                   TextFormField(
                     decoration: InputDecoration(
@@ -114,7 +125,13 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     obscureText: true,
                     validator: (v) {
-                      return v.trim().length > 7 ? null : '密码不能少于8位';
+                      if (expPassword.hasMatch(v.trim())) {
+                        // 匹配成功
+                        return null;
+                      } else {
+                        return '密码必须是字母数字必须大于八位，必须有一位是大写';
+                      }
+                      // return v.trim().length > 7 ? null : '密码不能少于8位';
                     },
                     onSaved: (val) {
                       _password = val;

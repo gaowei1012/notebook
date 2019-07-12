@@ -10,6 +10,9 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
 
+  RegExp expUserName = new RegExp(r'^([\u4e00-\u9fa5]{2,4})|([A-Za-z0-9_]{4,16})|([a-zA-Z0-9_\u4e00-\u9fa5]{3,16})$;');
+  RegExp expPassword = new RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,10}');
+  
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String _name;
   String _password;
@@ -85,7 +88,11 @@ class _RegisterPageState extends State<RegisterPage> {
                   _name = val;
                 },
                 validator: (v) {
-                  return v.trim().length > 0 ? null : '用户名不存在';
+                  if(expUserName.hasMatch(v.trim())) {
+                    return null;
+                  } else {
+                    return '用户名必须是字母或数字，不能以下划线开头或结尾';
+                  }
                 },
               ),
               TextFormField(
@@ -97,7 +104,12 @@ class _RegisterPageState extends State<RegisterPage> {
                   _password = val;
                 },
                 validator: (v) {
-                  return v.trim().length > 8 ? null : '密码必须大于8个字符';
+                  if(expPassword.hasMatch(v.trim())) {
+                    return null;
+                  } else {
+                    return '密码必须是字母数字必须大于八位，必须有一位是大写';
+                  }
+                  /// return v.trim().length > 8 ? null : '密码必须大于8个字符';
                 },
               ),
               Padding(

@@ -10,6 +10,10 @@ class EmailPage extends StatefulWidget {
 
 class _EmailPageState extends State<EmailPage> {
 
+  RegExp exp = new RegExp(r"^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$");
+
+  // bool matched = exp.hasMatch(str);
+
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String _email;
 
@@ -71,7 +75,11 @@ class _EmailPageState extends State<EmailPage> {
             _email = val;
           },
           validator: (v) {
-            return v.trim().length > 6 ? null : '请输入正确的邮箱';
+            if(exp.hasMatch(v.trim())) {
+              // 验证成功
+              return null;
+            }
+            return '请输入正确的邮箱📮';
           },
         ),
         Padding(
