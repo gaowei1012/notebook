@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:redux/redux.dart';
-import '../../model/User.dart';
+import 'package:notebook/model/User.dart';
 
 final UserReducer = combineReducers<User>([
 

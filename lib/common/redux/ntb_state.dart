@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import './user_redux.dart';
-import './notebook_state.dart';
-import '../../model/User.dart';
-
+import 'package:notebook/common/redux/user_redux.dart';
+import 'package:notebook/model/User.dart';
+import 'package:notebook/common/redux/notebook_state.dart';
 
 class NTState {
   User userInfo;

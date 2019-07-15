@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import './page/gliv_page.dart';
 import './page/about_page.dart';
 import '../login/login_page.dart';
 import './page/feed_back_page.dart';
@@ -127,7 +128,7 @@ class _SettingPageState extends State<SettingPage> {
           _about(context),
           _exitLogin(context),
 
-          ///_topBar()
+          _topBar()
         ],
       ),
     );
@@ -250,7 +251,7 @@ class _SettingPageState extends State<SettingPage> {
         onTap: () {
           /// 跳转到topbarpage页面
           Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => TopBarPage()));
+              .push(MaterialPageRoute(builder: (context) => ViewPage()));
         },
       ),
     );
