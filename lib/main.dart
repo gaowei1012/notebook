@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
 
   }
 
-  final GlobalKey navgiatorKey = GlobalKey(); 
+  //final GlobalKey navgiatorKey = GlobalKey(); 
 
   // 创建 store
   final store = new Store<NTState>(
@@ -32,8 +32,8 @@ class MyApp extends StatelessWidget {
 
     /// 配置 appkey chanel 
     jpush.setup(
-      appKey: '',
-      channel: '',
+      appKey: '2a55c8de3cc87b41576882f1',
+      channel: 'ChannelKey',
       production: false,
       debug: true
     );
@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
     ));
   }
 
-  
+
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
       child: new MaterialApp(
         theme: store.state.themeData,
         title: 'notebook',
-        navigatorKey: navgiatorKey,
+        //navigatorKey: navgiatorKey,
         routes: {
           /// 在这里做登录路由跳转
           WelcomePage.sName: (context) {// ==> '/'
