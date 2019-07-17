@@ -25,14 +25,15 @@ app.use(logger());
 app.use(passport.initialize())
 app.use(passport.session())
 
+/// 初始化数据库链接
 ;(async () => {
   await connect(),
   initSchema()
 })();
 
 // routes
-// app.use(require('./api/article').routes());
 app.use(require('./src/routes/user').routes());
+app.use(require('./src/routes/notebook').routes());
 
 app.listen(3030, () => {
   console.log("server statrd port 3030");
