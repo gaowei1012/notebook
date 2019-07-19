@@ -9,6 +9,7 @@ import 'package:notebook/pages/index_page.dart';
 import 'package:notebook/utils/navgiator_utils.dart';
 import 'package:jpush_flutter/jpush_flutter.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:notebook/common/fix/size_config.dart';
 
 void main() => runApp(MyApp());
 
@@ -52,7 +53,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     /// 初始化自适应
-    ///ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
+    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
+    /// 高效适配, 初始化
+    SizeConfig().init(context);
     return new StoreProvider(
       store: store,
       child: new MaterialApp(
