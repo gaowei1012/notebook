@@ -14,10 +14,10 @@ void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
 
-  MyApp() {
-    _jpushServce();
+  // MyApp() {
+  //   _jpushServce();
 
-  }
+  // }
 
   //final GlobalKey navgiatorKey = GlobalKey(); 
 
@@ -52,7 +52,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     /// 初始化自适应
-    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
+    ///ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
     return new StoreProvider(
       store: store,
       child: new MaterialApp(
@@ -62,10 +62,10 @@ class MyApp extends StatelessWidget {
         routes: {
           /// 在这里做登录路由跳转
           WelcomePage.sName: (context) {// ==> '/'
-            return new WelcomePage();
-            // return new NotebookLocalization(
-            //   child: NavgiatorUtils.pageContainer(new WelcomePage()),
-            // );
+            // return new WelcomePage();
+            return new NotebookLocalization(
+              child: NavgiatorUtils.pageContainer(new WelcomePage()),
+            );
           },
           IndexPage.sIndex: (context) {// ==> 'index'
             return new NotebookLocalization(
