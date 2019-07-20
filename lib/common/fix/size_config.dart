@@ -2,10 +2,15 @@ import 'package:flutter/widgets.dart';
 /// UI适配
 class SizeConfig {
 
+  /// 定义MediaQueryData对象
   static MediaQueryData _mediaQueryData;
+  /// 定义默认宽度
   static double screentWidth;
+  /// 定义默认高度
   static double screenyHeight;
+  /// 定义实际发生改变的高度
   static double blockSizeHorizontal;
+  /// 定义实际发生改变的宽度
   static double blockSizeVertical;
 
   static double _safeAreaHorizontal;
@@ -13,6 +18,10 @@ class SizeConfig {
   static double safeBlockHorizontal;
   static double safeBlockVertical;
 
+  /**
+   * @init 设置自动适应
+   * BuildContext context
+   */
   void init(BuildContext context) {
     _mediaQueryData = MediaQuery.of(context);
     screentWidth = _mediaQueryData.size.width;

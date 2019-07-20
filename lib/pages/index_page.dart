@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+// import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import './home/Home_page.dart';
 import './notebook/notebook_page.dart';
 import './privacy/privacy_page.dart';
 import './setting/setting_page.dart';
+import './size/index.dart';
 
 class IndexPage extends StatefulWidget {
   static final String sIndex = 'index';
@@ -37,7 +38,8 @@ class _IndexPageState extends State<IndexPage> {
   final List<Widget> tabBodis = [
     HomePage(),
     NotebookPage(),
-    PrivacyPage(),
+    // PrivacyPage(),
+    TextPage(),
     SettingPage()
   ];
 
@@ -53,7 +55,7 @@ class _IndexPageState extends State<IndexPage> {
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
+    ///ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
     return Scaffold(
       body: Scaffold(
         backgroundColor: Color.fromRGBO(245, 245, 245, 1.0),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+// import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 /// 私密日记
@@ -94,7 +94,7 @@ class _PrivacyPageState extends State<PrivacyPage> {
         backgroundColor: Colors.blue,
       ),
       body: Container(
-        width: ScreenUtil.instance.setWidth(8.0),
+        width: 8.0,
         /// 刷新
         child: new RefreshIndicator(
           key: refreshKey,
