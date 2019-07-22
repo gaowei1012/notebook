@@ -7,4 +7,4 @@
  ![sarech](https://gaomingwei.xyz/wp-content/uploads/2019/07/WX20190722-230008.png)
 
  - 购物车
-  ![cart](https://gaomingwei.xyz/wp-content/uploads/2019/07/WX20190722-230020.png)
+ ![cart](https://gaomingwei.xyz/wp-content/uploads/2019/07/WX20190722-230020.png)
